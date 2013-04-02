@@ -1,0 +1,7 @@
+<h2>Sign Up</h2>
+
+<%= form_for(@user, :url => user_sign_up_url) do |user| %>
+  <%= render "subscribem/account/users/form", :user => user %>
+  <%= user.submit "Sign up" %>
+<% end %>
+

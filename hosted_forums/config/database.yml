@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: hosted_forums_development 
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  database: hosted_forums_test
+  min_messages: warning
