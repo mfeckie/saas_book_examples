@@ -1,0 +1,20 @@
+<h2>Edit Account</h2>
+
+<%= form_for(current_account, :url => account_path) do |account| %>
+  <p>
+    <%= account.label :name %>
+    <%= account.text_field :name %>
+  </p>
+
+  <p>
+    <%= account.label :plan_id %>
+    <% plans = Subscribem::Plan.all.map { |p| [p.name, p.id] } %>
+    <%= account.select :plan_id, plans %>
+  </p>
+
+  <div id='account_plan_info' style='display:none'>
+
+  </div>
+
+  <%= account.submit "Update Account" %>
+<% end %>
