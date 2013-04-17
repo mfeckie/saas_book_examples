@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     subscribem (0.0.1)
-      apartment (= 0.19.0)
+      apartment (= 0.20.0)
       bcrypt-ruby (= 3.0.1)
       braintree (= 2.22.0)
       dynamic_form (= 1.1.4)
@@ -10,11 +10,11 @@ PATH
       warden (= 1.2.1)
 
 PATH
-  remote: ~/Sites/gems/apartment
+  remote: ~/Sites/gems/fake_braintree_redirect
   specs:
-    apartment (0.19.0)
-      activerecord (>= 3.1.2)
-      rack (>= 1.3.6)
+    fake_braintree_redirect (1.0.0)
+      braintree (= 2.22.0)
+      rack
 
 GEM
   remote: http://rubygems.org/
@@ -47,6 +47,9 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     addressable (2.3.3)
+    apartment (0.20.0)
+      activerecord (>= 3.1.2)
+      rack (>= 1.3.6)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     braintree (2.22.0)
@@ -156,10 +159,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  apartment!
+  apartment (= 0.20.0)
   capybara (= 2.0.2)
   database_cleaner (= 0.9.1)
   factory_girl (= 4.1.0)
+  fake_braintree_redirect!
   jquery-rails
   launchy
   pg

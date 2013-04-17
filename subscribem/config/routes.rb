@@ -9,6 +9,12 @@ Subscribem::Engine.routes.draw do
       post '/sign_up', :to => "users#create", :as => :user_sign_up
       get '/account', :to => "accounts#edit", :as => :account
       put '/account', :to => "accounts#update"
+      get '/account/plan/:plan_id',
+        :to => "accounts#plan",
+        :as => :plan_account
+      get '/account/confirm_plan', 
+        :to => "accounts#confirm_plan",
+        :as => :confirm_plan_account
     end
   end
 

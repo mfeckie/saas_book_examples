@@ -8,7 +8,8 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem 'pry'
-gem 'apartment', :path => "~/Sites/gems/apartment"
+gem 'apartment', '0.20.0'
+gem 'fake_braintree_redirect', :path => "~/Sites/gems/fake_braintree_redirect"
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

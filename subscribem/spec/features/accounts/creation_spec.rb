@@ -19,7 +19,7 @@ feature 'Accounts' do
   end
 
   scenario "cannot create an account with an already used subdomain" do
-    Subscribem::Account.create!(:subdomain => "test")
+    Subscribem::Account.create!(:subdomain => "test", :name => "test")
     visit subscribem.root_path
     click_link 'Account Sign Up'
     fill_in 'Name', :with => "Test"

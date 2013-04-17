@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby", '3.0.1'
   s.add_dependency 'warden', '1.2.1'
   # s.add_dependency "jquery-rails"
-  s.add_dependency "apartment", "0.19.0"
+  s.add_dependency "apartment", "0.20.0"
   s.add_dependency "dynamic_form", "1.1.4"
   s.add_dependency "braintree", '2.22.0'
 

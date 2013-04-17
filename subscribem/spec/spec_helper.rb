@@ -59,5 +59,3 @@ RSpec.configure do |config|
     end
   end
 end
-
-Capybara.app_host = "http://example.com"

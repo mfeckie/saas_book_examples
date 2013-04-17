@@ -1,0 +1,48 @@
+<div class='plan-info'>
+  <p>
+    You are changing to the '<%= @plan.name %>' plan.
+  </p>
+
+  <p>
+    This plan costs <strong>$<%= @plan.price %></strong> per month.
+  </p>
+</div>
+
+<%= form_for :transaction,
+     :url => Braintree::TransparentRedirect.url,
+     :html => {:autocomplete => "off"} do |f| -%>
+  <%= f.fields_for :customer do |c| -%>
+    <p>
+      <%= c.label :first_name, "First name" %><br>
+      <%= c.text_field :first_name %>
+    </p>
+    <p>
+      <%= c.label :last_name, "Last name" %>
+      <%= c.text_field :last_name %>
+    </p>
+  <% end -%>
+  <%= f.fields_for :credit_card do |c| -%>
+    <p>
+      <%= c.label :number, "Credit card number" %>
+      <%= c.text_field :number %>
+    </p>
+    <p>
+      <%= c.label :expiration_date, "Expiration date" %>
+      <%= c.text_field :expiration_date %>
+    </p>
+    <p>
+      <%= c.label :cvv, "CVV" %>
+      <%= c.text_field :cvv %>
+    </p>
+  <% end -%>
+  <% tr_data = Braintree::TransparentRedirect.transaction_data(
+    :redirect_url => subscribem.confirm_plan_account_url(:plan_id => @plan.id),
+    :transaction => {
+      :type => "sale",
+      :amount => @plan.price
+    }
+  ) %>
+  <%= hidden_field_tag "tr_data", tr_data %>
+  <%= f.submit "Change plan" %>
+<% end -%>
+
