@@ -50,9 +50,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
     connection = ActiveRecord::Base.connection.raw_connection
     schemas = connection.query(%Q{
-      SELECT 'drop schema ' || nspname || ' cascade;'
-      from pg_namespace where nspname != 'public' AND
-      nspowner != (select oid from pg_roles where rolname = 'postgres');
+       select 'drop schema ' || nspname || ' cascade;' from pg_namespace where nspname LIKE 'testzxcvb%';
     })
     schemas.each do |query|
       connection.query(query.values.first)
